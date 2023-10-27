@@ -1,3 +1,5 @@
+import { Primitive } from './primitive'
+
 type SafeKey<T> = T extends string | number | boolean ? `${T}` : never
 
 type ObjectPaths<O extends {}> = SafeKey<
@@ -11,11 +13,7 @@ type ArrayPaths<O extends any[]> = O extends Array<infer U>
     : never
 
 type LeafTypes =
-    | string
-    | number
-    | boolean
-    | null
-    | undefined
+    | Primitive
     | Date
     | RegExp
     | Map<any, any>
